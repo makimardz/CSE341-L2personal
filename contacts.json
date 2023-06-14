@@ -1,11 +1,11 @@
 {
-    "contact": {
-      "firstName": "Mardz",
-      "lastName": "Aranas",
+  "contact": {
+    "firstName": "Mardz",
+    "lastName": "Aranas",
       "email": "mardz@email.com",
       "favoriteColor": "Black",
       "birthday": "02/19/81"
-    },
+  },
     "contact2": {
       "firstName": "Jaco",
       "lastName": "Aranas",

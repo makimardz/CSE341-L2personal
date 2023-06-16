@@ -1,9 +1,7 @@
-const { response } = require('express');
 const mongodb = require('../db/connection');
-console.log(mongodb);
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res, next) => {
+const getAll = async (req, res) => {
   const result = await mongodb.getDb().db('contactsDB').collection('contacts').find();
   result.toArray().then((lists) => {
     console.log(lists); // Log the query results
@@ -26,7 +24,7 @@ const getSingle = async (req, res, next) => {
   });
 };
 
-const createContact = async (req, res, next) => {
+const createContact = async (req, res) => {
   const contact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -42,7 +40,7 @@ const createContact = async (req, res, next) => {
     }
 };
 
-const updateContact = async (req, res, next) => {
+const updateContact = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   const contact = {
     firstName: req.body.firstName,
@@ -55,7 +53,7 @@ const updateContact = async (req, res, next) => {
     .getDb()
     .db('contactsDB')
     .collection('contacts')
-    .updateOne({ _id: userId }, { $set: contact });
+    .replaceOne({ _id: userId }, contact);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -64,13 +62,9 @@ const updateContact = async (req, res, next) => {
     }
 };
 
-const deleteContact = async (req, res, next) => {
+const deleteContact = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDb()
-    .db('contactsDB')
-    .collection('contacts')
-    .deleteOne({ _id: userId }, true);
+  const response = await mongodb.getDb().db('contactsDB').collection('contacts').remove({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();

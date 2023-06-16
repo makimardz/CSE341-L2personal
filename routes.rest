@@ -10,7 +10,7 @@ POST http://localhost:3000/contacts HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Izech",
+    "firstName": "Ivan",
     "lastName": "Aranas",
     "email": "izech@email.com",
     "favoriteColor": "Purple",
@@ -19,7 +19,7 @@ content-type: application/json
 // Send Request
 
 ### PUT contact
-PUT http://localhost:3000/contacts/6484888b0e0480ec425e1cf0 HTTP/1.1
+PUT http://localhost:3000/contacts/648a24b596676a9e5c7e87f3 HTTP/1.1
 content-type: application/json
 
 {
@@ -31,4 +31,7 @@ content-type: application/json
 }
 
 ### DELETE contact
-DELETE http://localhost:3000/contacts/648488970e0480ec425e2a85 HTTP/1.1
+DELETE http://localhost:3000/contacts/648a24b596676a9e5c7e87f3 HTTP/1.1
+
+### Request for API Docs
+GET http://localhost:3000/api-docs

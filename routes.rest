@@ -19,7 +19,7 @@ content-type: application/json
 // Send Request
 
 ### PUT contact
-PUT http://localhost:3000/contacts/648ca4b41e77527a98e7a045
+PUT http://localhost:3000/contacts/648ca8153c1df14a5c7762a7
 content-type: application/json
 
 {
@@ -31,7 +31,7 @@ content-type: application/json
 }
 
 ### DELETE contact
-DELETE http://localhost:3000/contacts/648ca4b41e77527a98e7a045 
+DELETE http://localhost:3000/contacts/648ca8153c1df14a5c7762a7 
 
 ### Request for API Docs
 GET http://localhost:3000/api-docs
